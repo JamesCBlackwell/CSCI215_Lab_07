@@ -105,7 +105,6 @@ function draw() {
 	 *
 	 */
 	document.body.onkeydown = function(e) {  // listen for a key
-
     	e = event || window.event;             // any kind of event
     	var keycode = e.charCode || e.keyCode; // any kind of key
 		console.log(keycode);
@@ -113,13 +112,13 @@ function draw() {
     	if(keycode === 13 && Mario.moving == "no") {  
         	Mario.timer = setInterval(render, Mario.timerInterval); 
     	}
-        if(keycode === 82 && Mario.x < 900 && Mario.moving == "no") {
+        if(keycode === 37 && Mario.x < 900 && Mario.moving == "no") {
             Mario.x -= 30;
             Mario.Image.src = "marioturnsleft.png";
             ctx.drawImage(bgImage, 0, 0);
             ctx.drawImage(Mario.Image, Mario.x, Mario.y, Mario.w, Mario.h);
         }
-        if(keycode === 76 && Mario.x > 0 && Mario.moving == "no") {
+        if(keycode === 39 && Mario.x > 0 && Mario.moving == "no") {
             Mario.x += 30;
             Mario.Image.src = "marioturnsright.png";
             ctx.drawImage(bgImage, 0, 0);
@@ -135,23 +134,22 @@ function draw() {
      * TODO: to face Mario forward after 200 ms. HINT: setTimeout(function, timeInMilliSecs)
      */
     document.body.onkeyup = function(e) { // listen for a key
-/*    ### I tried to write the follwoing code and it would turn my screen white??
+///   ### a little glitchy
 		e = event || window.event;             // any kind of event
     	var keycode = e.charCode || e.keyCode; // any kind of key
 		console.log(keycode);
 
-        if (keycode === 82 && Mario.x < 900 && Mario.moving == "no") {
-            setTimeout(function,200); {
-                faceForward();
+        if (keycode === 37) {
+            setTimeout(faceForward,200); {
             }
 
-        } else if (keycode === 76 && Mario.x > 0 && Mario.moving == "no") {
-            setTimeout(function,200);{
-                faceForward();
+        } else if (keycode === 39) {
+            setTimeout(faceForward,200);{
+
             }
 
         }
-///*/
+///
     }
 
 
